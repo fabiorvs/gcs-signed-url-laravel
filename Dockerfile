@@ -1,5 +1,5 @@
 # Use uma imagem base do PHP com suporte para extensões necessárias
-FROM php:8.3-fpm
+FROM php:8.3-apache-bookworm
 
 # Instale dependências do sistema
 RUN apt-get update && apt-get install -y \
