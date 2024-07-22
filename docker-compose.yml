@@ -8,6 +8,11 @@ services:
     container_name: laravel_app
     restart: unless-stopped
     working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+      - ./config/service.json:/var/www/html/config/service.json:ro
+      - ./storage:/var/www/html/storage
+      - ./bootstrap/cache:/var/www/html/bootstrap/cache
     environment:
       - APP_ENV=local
       - APP_DEBUG=true
@@ -24,7 +29,7 @@ services:
       - "traefik.http.routers.gcp2.tls.certresolver=letsencrypt"
       - "traefik.http.services.gcp2.loadbalancer.server.port=80"
     ports:
-      - "8181:8000"
+      - "8001:8000"
     networks:
       - web
 
