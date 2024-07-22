@@ -42,7 +42,7 @@ RUN mkdir -p /var/www/config && echo '{}' > /var/www/config/service.json
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
 # Exponha a porta que o servidor vai utilizar
-EXPOSE 9000
+EXPOSE 80
 
 # Inicie o PHP-FPM
 CMD ["php-fpm"]

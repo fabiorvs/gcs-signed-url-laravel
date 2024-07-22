@@ -25,10 +25,6 @@ services:
       - "traefik.http.routers.gcp2.entrypoints=websecure"
       - "traefik.http.routers.gcp2.tls=true"
       - "traefik.http.routers.gcp2.tls.certresolver=letsencrypt"
-      - "traefik.http.services.gcp2.loadbalancer.server.port=9000"
-
-    ports:
-      - "9000:9000"
 
     networks:
       - web
