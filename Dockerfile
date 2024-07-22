@@ -22,9 +22,12 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Defina o diretório de trabalho
 WORKDIR /var/www
 
+# Defina a variável de ambiente para permitir o Composer rodar como superusuário
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
 # Copie o arquivo composer e instale as dependências
 COPY composer.json composer.lock ./
-RUN composer install --no-scripts --no-autoloader
+RUN composer install --no-scripts --no-autoloader --ignore-platform-reqs
 
 # Copie o restante do código da aplicação
 COPY . .
