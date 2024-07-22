@@ -25,6 +25,7 @@ services:
       - "traefik.http.routers.gcp2.entrypoints=websecure"
       - "traefik.http.routers.gcp2.tls=true"
       - "traefik.http.routers.gcp2.tls.certresolver=letsencrypt"
+      - "traefik.http.services.wordpress.loadbalancer.server.port=9000"
 
     ports:
       - "9000:9000"
