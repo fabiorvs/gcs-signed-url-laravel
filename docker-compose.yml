@@ -15,7 +15,7 @@ services:
       - APP_ENV=local
       - APP_DEBUG=true
       - APP_KEY=base64:YOUR_APP_KEY
-      - GOOGLE_CLOUD_PROJECT_ID=your-project-id
+      - GOOGLE_CLOUD_PROJECT_ID=projeto-teste-378716
       - GOOGLE_CLOUD_KEY_FILE_PATH=config/service.json
       - GOOGLE_CLOUD_STORAGE_BUCKET=cdse-prd
 
