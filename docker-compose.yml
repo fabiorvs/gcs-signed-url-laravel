@@ -29,7 +29,7 @@ services:
       - "traefik.http.routers.gcp2.tls.certresolver=letsencrypt"
       - "traefik.http.services.gcp2.loadbalancer.server.port=80"
     ports:
-      - "80:80"
+      - "8001:8000"
     networks:
       - web
 
