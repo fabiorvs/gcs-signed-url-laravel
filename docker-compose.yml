@@ -7,14 +7,6 @@ services:
       dockerfile: Dockerfile
     container_name: laravel_app
     restart: unless-stopped
-    environment:
-      - APP_ENV=local
-      - APP_DEBUG=true
-      - APP_KEY=base64:YOUR_APP_KEY
-      - GOOGLE_CLOUD_PROJECT_ID=projeto-teste-378716
-      - GOOGLE_CLOUD_KEY_FILE_PATH=config/service.json
-      - GOOGLE_CLOUD_STORAGE_BUCKET=cdse-prd
-      - COMPOSER_ALLOW_SUPERUSER=1
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.gcp2.rule=Host(`gcp.fabiorvs.dev.br`)"
