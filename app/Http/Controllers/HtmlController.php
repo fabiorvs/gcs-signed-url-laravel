@@ -13,6 +13,17 @@ class HtmlController extends Controller
         $this->gcsService = $gcsService;
     }
 
+    public function serveFile($filename)
+    {
+        $extension = pathinfo($filename, PATHINFO_EXTENSION);
+
+        if ($extension === 'html') {
+            return $this->serveHtml($filename);
+        } else {
+            return $this->redirectFile($filename);
+        }
+    }
+
     public function serveHtml($filename)
     {
         try {
