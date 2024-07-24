@@ -54,11 +54,13 @@ class GoogleCloudStorageService
     public function processHtmlContent($htmlContent, $baseDir)
     {
         Log::info("Processing HTML content");
-        $urlRegex = '/src="([^"]+)"|href="([^"]+)"/';
+        $urlRegex = '/(src|href)="([^"]+)"/i';
         $matches = [];
-        preg_match_all($urlRegex, $htmlContent, $matches);
+        preg_match_all($urlRegex, $htmlContent, $matches, PREG_SET_ORDER);
 
-        foreach ($matches[1] as $key => $url) {
+        foreach ($matches as $match) {
+            $attribute = $match[1];
+            $url = $match[2];
             if ($url) {
                 $absolutePath = $baseDir . '/' . $url;
                 Log::info("Processing URL: " . $absolutePath);
